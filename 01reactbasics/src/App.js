@@ -1,9 +1,12 @@
-
+import CodeIchai from './codeIansh';
 import './App.css';
 
 function App() {
   return (
-    <h1>codeIansh | React</h1>
+    <>
+    <CodeIchai />
+    <h1>Hello CodeIchai!</h1>
+    </>
   );
 }
 
