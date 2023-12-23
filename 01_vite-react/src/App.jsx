@@ -1,34 +1,38 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState } from 'react';
 import './App.css'
-import { useState } from 'react'
-
 
 function App() {
-      // let value = 0;     React handle UI on its Own..thats why we have to use (Hooks).
+  // Initialize state with a value of 0
+  const [value, setValue] = useState(0);
 
-      let [value,setValue] = useState(0);      //(Hooks) where ([setValue] is a funct && [value] is the variable ).
+  // Function to increment the counter
+  const addVal = () => {
+    // Check if the current value is less than 20 before updating
+    if (value < 20) {
+      // Update the state by incrementing the current value
+      setValue(value + 1);
+    }
+  };
 
-      const addVal = () => {
-        // console.log("addval",value);   just for checking!
-        value = value + 1;
-        setValue(value);
-      }
-
-      const remVal = () => {
-        // console.log("remval",value);   just for checking!
-        value = value - 1;
-        setValue(value);
-      }
+  // Function to decrement the counter
+  const remVal = () => {
+    // Check if the current value is greater than 0 before updating
+    if (value > 0) {
+      // Update the state by decrementing the current value
+      setValue(value - 1);
+    }
+  };
 
   return (
     <>
       <h1>codeIansh</h1>
       <h2>Counter Value {value}</h2>
-      <button onClick={addVal}>Add Val {value}</button>
-      <button onClick={remVal}>Remove Val {value}</button>
+      {/* Button to increment the counter */}
+      <button onClick={addVal}>Add Val</button>
+      {/* Button to decrement the counter */}
+      <button onClick={remVal}>Remove Val</button>
     </>
   );
 }
 
-export default App
+export default App;
