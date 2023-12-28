@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
-
+import {useLoaderData} from 'react-router-dom'
 
 function Githubfollowers() {
-
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        fetch('https://api.github.com/users/AnshSingh2529')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            setData(data);
-        })
-    },[])
+const data = useLoaderData()
+    // const [data, setData] = useState([]);
+    // useEffect(() => {
+    //     fetch('https://api.github.com/users/AnshSingh2529')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         console.log(data);
+    //         setData(data);
+    //     })
+    // },[])
 
   return (
     <div className='flex justify-center  bg-gray-500 text-black font-mono text-3xl'>
@@ -25,3 +25,8 @@ function Githubfollowers() {
 
 
 export default Githubfollowers
+
+export const githubInfo = async () => {
+  const response = await fetch('https://api.github.com/users/AnshSingh2529');
+  return response.json();
+} 
